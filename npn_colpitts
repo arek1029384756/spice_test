@@ -1,0 +1,43 @@
+*NPN RF colpitts oscillator
+
+    .INCLUDE /home/arek/pdf/BFR93A_SPICE.prm
+
+    V1 vdd 0 12V
+    v2 vss 0 0V
+
+    C0 vdd vss 100n
+
+    Xnpn col bas emi BFR93A
+
+    R1 vdd bas 33K
+    *R2 bas vss 10K
+    C1 bas emi 22p
+    C2 emi vss 22p
+    R3 emi vss 1k
+
+    L11 vdd B 100n
+    C11 vdd B 25p
+    R11 B col 10
+    L12 X vss 23n
+    K11 L11 L12 0.9
+
+    *R4 vdd col 560
+    *C6 col vss 10p
+
+    C3 bas A 10p
+
+    L3 A vss 100n
+    C4 A vss 25p
+    R6 A vss 500
+
+    *C5 X out 1n
+    R5 X out 0
+    
+ 
+    *Cload out vss 3p
+    Rload out vss 75
+
+    .MODEL npnt BFR93A
+
+    .TRAN 10p 12n
+    .end

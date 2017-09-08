@@ -1,0 +1,37 @@
+*NPN RF amplifier
+
+    .INCLUDE /home/arek/pdf/BFR93A_SPICE.prm
+
+    V1 vpwr 0 12V
+    v2 vss 0 0V
+    v3 gen vss sin(0V 400mV 100MEG)
+
+    R0 vpwr vdd 10
+    C0 vdd vss 1u
+    C111 vdd vss 10p
+
+    Rgen gen in 50
+
+    Xnpn col bas emi BFR93A
+    R1 vdd bas 47K
+    R2 bas vss 22K
+    C1 in bas 1n
+
+    L3 vdd col 100n
+    C33 vdd col 25p
+    L4 X vss 15n
+    K1 L3 L4 0.9
+
+    R4 emi vss 10
+    C44 emi vss 1n
+    
+    *C3 col out 1n
+    R5 X out 0
+
+ 
+    Rload out vss 50
+
+    .MODEL npnt BFR93A
+
+    .TRAN 10p 12n
+    .end

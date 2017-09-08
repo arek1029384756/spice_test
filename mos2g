@@ -1,0 +1,35 @@
+*dual gate mosfet amplifier
+
+    .INCLUDE /home/arek/pdf/spice_BF998.prm
+
+    V1 vdd 0 12V
+    v2 vss 0 0V
+    v3 gen vss sin(0V 500mV 100MEG) 
+
+    Rgen gen in 150
+
+    Cup in g1 100p
+    *Cdn g1 vss 33p
+
+    Xnd sou dra g2 g1 BF998
+    R1 vdd g2 100K
+    R2 g2 vss 100K
+    C1 g2 vss 100n
+
+    R3 g1 vss 47K
+
+    *R4 vdd dra 1k
+    L4 vdd dra 100n
+    C4 dra vss 22p
+
+    R5 sou vss 0
+ 
+    C6 dra out 1n
+    
+    Cload out vss 5p
+    Rload out vss 500
+
+    .MODEL pdualnmos BF998
+
+    .TRAN 10p 12n
+    .end

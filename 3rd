@@ -1,0 +1,37 @@
+*3rd harmonic filter
+
+    .INCLUDE /home/arek/pdf/spice_BF998.prm
+
+    V1 vdd 0 12V
+    v2 vss 0 0V
+    v3 gen vss pulse(0V 5V 0 2n 2n 11.15n 30.3n) 
+
+    Rgen gen in 1k
+
+    C1 in vss 47p
+    L1 in vss 55n
+
+    C2 in g1 2.2p
+
+    Xnd sou dra g1 g2 BF998
+    R1 vdd g2 100K
+    R2 g2 vss 100K
+    C3 g2 vss 100n
+
+    R3 g1 vss 470k
+
+    *R4 vdd dra 1k
+    L4 vdd dra 55n
+    C4 dra vss 47p
+
+    R5 sou vss 0
+ 
+    C6 dra out 100p
+
+    *Cload out vss 2p
+    Rload out vss 640k
+
+    .MODEL pdualnmos BF998
+
+    .TRAN 10p 12n
+    .end

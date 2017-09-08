@@ -1,0 +1,16 @@
+*impedance matching
+
+    V1 vpwr 0 12V
+    v2 vss 0 0V
+    v3 gen vss sin(0V 8V 100MEG)
+
+    Rs gen in 150
+
+    L1 in A 40n
+    C1 A out 15p
+    C2 out vss 15p
+
+    Rl out vss 50
+
+    .TRAN 10p 12n
+    .end

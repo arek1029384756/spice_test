@@ -1,0 +1,57 @@
+*NPN RF transmitter
+
+    .INCLUDE /home/arek/pdf/BFR93A_SPICE.prm
+
+    V1 vpwr 0 12V
+    v2 vss 0 0V
+
+    R110 vpwr vdd 10
+    C110 vdd vss 1u
+    C111 vdd vss 100n
+    C112 vdd vss 10p
+
+
+    *colpitts oscillator
+    Xnpn1 col1 bas1 emi1 BFR93A
+
+    R10 vdd bas1 10K
+    R11 bas1 vss 15K
+    C10 bas1 emi1 22p
+    C11 emi1 vss 12p
+    R12 emi1 vss 1.5k
+
+    R13 vdd col1 470
+    *C12 col1 vss 10p
+
+    C13 bas1 A 10p
+
+    L10 A vss 55n
+    C14 A vss 40p
+
+    C15 emi1 bas2 1n
+
+
+
+    *RF amplifier
+    Xnpn2 col2 bas2 emi2 BFR93A
+
+    R20 vdd bas2 47K
+    R21 bas2 vss 47K
+
+    L20 vdd col2 55n
+    L21 X vss 10n
+    K20 L20 L21 0.8
+    C21 vdd col2 40p
+
+    R24 emi2 vss 33
+    C22 emi2 vss 1n
+    
+    C23 X out 1n
+
+
+ 
+    Cload out vss 2p
+    Rload out vss 50
+
+    .TRAN 10p 12n
+    .end

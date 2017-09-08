@@ -1,0 +1,18 @@
+*LRC circuit
+
+    V1 vdd 0 5V
+    v2 vss 0 0V
+    v3 gen vss pulse(0V 5V 0 3n 3n 147n 300n) 
+
+    Rgen gen in 5
+    *Rin in vss 50
+
+    R1 in A 10
+    L1 A out 100n
+    C1 out vss 47p
+
+    *Cload out vss 2p
+    *Rload out vss 500
+
+    .TRAN 10p 12n
+    .end

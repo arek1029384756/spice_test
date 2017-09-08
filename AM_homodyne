@@ -1,0 +1,40 @@
+*dual AM homodyne receiver
+
+    .INCLUDE /home/arek/pdf/spice_BF998.prm
+
+    V1 vdd 0 12V
+    v2 vss 0 0V
+    v3 gen vss sin(0V 0.2V 27MEG) 
+    
+    *va sig_a vss sin(0V 10uV 26999k) 
+    vb sig_b vss sin(0V 1mV 27005k) 
+    *vc sig_c vss sin(0V 100uV 27MEG) 
+
+    *Ra sig_a sig_ant 150
+    *Rb sig_b sig_ant 150
+    *Rc sig_c sig_ant 150
+
+    *mixer
+    Xnd sou dra g1 g2 BF998
+    R1 sig_b g1 0
+    R2 gen g2 0
+
+    R4 vdd dra 2k
+
+    R5 dra A 2k
+    C6 dra vss 47n
+    C7 A vss 47n
+    
+    R6 sou vss 0
+    
+    C8 A out 100n
+    
+
+
+    Cload out vss 2p
+    Rload out vss 5000
+
+    .MODEL pdualnmos BF998
+
+    .TRAN 10p 12n
+    .end

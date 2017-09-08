@@ -1,0 +1,30 @@
+*NPN FM/SW radio front-end
+
+    .INCLUDE /home/arek/pdf/BFR93A_SPICE.prm
+
+    V1 vdd 0 18V
+    v2 vss 0 0V
+    v3 gen vss sin(0V 0.1V 27MEG)
+
+    Rgen gen in 75
+
+    Qnpn1 col1 bas1 emi1 npnt1
+    R11 vdd bas1 47k
+    R12 vss bas1 22k
+    C11 in bas1 10n
+    L13 vdd col1 400n
+    C12 vdd col1 80p
+    L14 vss X1 70n
+    K1 L13 L14 0.8
+    R14 emi1 vss 10
+    C14 emi1 vss 10n
+    C13 X1 out 10n
+ 
+ 
+    Rload out vss 75
+
+    .MODEL npnt BFR93A
+    .MODEL npnt1 NPN
+
+    .TRAN 10p 12n
+    .end

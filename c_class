@@ -1,0 +1,60 @@
+*NPN C-class RF amplifier
+
+    V1 vpwr 0 12V
+    v2 vss 0 0V
+    v3 gen vss sin(0V 3.5V 100MEG)
+
+    R1 vpwr vdd 10
+    C1 vdd vss 1u
+    C2 vdd vss 10p
+
+    Rgen gen in 50
+
+    Qnpn col bas vss npnt
+    D1 vss bas BAT85
+    R2 vss bas 470
+    C3 in X 10p
+    L3 X bas 100n
+
+    L1 vdd col 100n
+
+    L11 col A 35n
+    C11 A vss 85p
+    L12 A B 91n
+    C12 B vss 52p
+    L13 B C 91n
+    C13 C vss 30p
+
+    C5 C out 1n
+    
+ 
+    *Cload out vss 2p
+    Rload out vss 50
+
+    .MODEL npnt NPN
+    .MODEL DF D (IS=26.05E-9 N=1.0 RS=10.0 CJO=0.10E-12 VJ=0.7 M=0.2 XTI=2.0 EG=0.5 TT=5E-12 BV=10.0) 
+    .MODEL BAT85 D (
+        + IS = 2.076E-7 
+        + N = 1.023 
+        + BV = 33 
+        + IBV = 10E-6 
+        + RS = 2.326 
+        + CJO = 1.21E-11 
+        + VJ = 0.1319 
+        + M = 0.2904 
+        + EG = 0.69 
+        + XTI = 2 )
+    .MODEL 1N4148 D (
+        + IS = 4.352E-9 
+        + N = 1.906 
+        + BV = 110 
+        + IBV = 0.0001 
+        + RS = 0.6458 
+        + CJO = 7.048E-13 
+        + VJ = 0.869 
+        + M = 0.03 
+        + FC = 0.5 
+        + TT = 3.48E-9 )
+
+    .TRAN 10p 12n
+    .end

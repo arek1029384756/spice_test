@@ -1,0 +1,38 @@
+*NPN RF colpitts oscillator
+
+    .INCLUDE /home/arek/pdf/spice_BF998.prm
+
+    V1 vdd 0 12V
+    v2 vss 0 0V
+
+    C0 vdd vss 100n
+
+    Xnd sou dra g1 g2 BF998
+
+    R1 vdd g1 10K
+    R11 g1 vss 47K
+
+    R2 g2 vss 1MEG
+    C1 g2 sou 22p
+    C2 sou vss 12p
+    R3 sou vss 470
+
+    *R4 vdd dra 470
+    L2 vdd dra 820n
+    *C6 dra vss 10p
+
+    C3 g2 A 10p
+
+    L3 A vss 55n
+    C4 A vss 46p
+
+    C5 sou out 1n
+    
+ 
+    Cload out vss 2p
+    Rload out vss 500
+
+    .MODEL pdualnmos BF998
+
+    .TRAN 10p 12n
+    .end

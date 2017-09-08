@@ -1,0 +1,29 @@
+*NPN RF amplifier
+
+    V1 vdd 0 22V
+    v2 vss 0 0V
+    *v3 gen vss sin(0V 2.5V 33MEG) 
+    *v3 gen vss pulse(0V 3.3V 0 1n 1n 14.15n 30.3n) 
+    v3 gen vss pulse(0V 5V 0 1n 1n 11.5n 25n) 
+
+    Rgen gen in 50
+
+    Qnpn col bas emi npnt
+    R1 in bas 1k
+    C1 in bas 1n
+
+    L3 vdd col 100n
+    C2 vdd col 150p
+
+    R4 emi vss 0 
+    
+    C3 col out 1n
+    
+ 
+    Cload out vss 2p
+    Rload out vss 50
+
+    .MODEL npnt NPN
+
+    .TRAN 10p 12n
+    .end
