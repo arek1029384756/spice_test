@@ -18,7 +18,11 @@
 
     R4 vdd dra 0
 
+    *Id = 8mA, high linearity
     R5 sou vss 150
+
+    *Id = 3mA, good linearity
+    *R5 sou vss 470
  
     C6 sou out 100n
    
