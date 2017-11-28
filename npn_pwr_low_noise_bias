@@ -8,7 +8,14 @@
     C0 vdd vss 1u
     C111 vdd vss 10p
 
-    Rgen gen in 330
+    Rgen gen gen_out 330
+
+    *Butterworth 5-th order LPF, f-3dB = 3kHz
+    C101 gen_out vss 100n
+    L101 gen_out F 28m
+    C102 F vss 330n
+    L102 F in 28m
+    C103 in vss 100n
 
     Qnpn col bas emi npnt
     R1 vdd A 82k
@@ -16,7 +23,7 @@
     C1 A vss 10u
 
     R3 bas A 330
-    C3 in bas 1u
+    C3 in bas 10u
 
     R4 vdd col 2.2k
     C4 col vss 15n
