@@ -1,0 +1,35 @@
+*NPN low noise biased amplifier
+
+    V1 vpwr 0 9V
+    v2 vss 0 0V
+    v3 gen vss sin(0V 1uV 1k)
+
+    R0 vpwr vdd 10
+    C0 vdd vss 1u
+    C111 vdd vss 10p
+
+    Rgen gen in 330
+
+    Qnpn col bas emi npnt
+    R1 vdd A 82k
+    R2 A vss 10k
+    C1 A vss 10u
+
+    R3 bas A 330
+    C3 in bas 1u
+
+    R4 vdd col 2.2k
+    C4 col vss 15n
+
+    R5 emi vss 47
+    *C5 emi vss 1000n
+    
+    C6 col out 1u
+
+ 
+    Rload out vss 10k
+
+    .MODEL npnt NPN
+
+    .TRAN 10p 12n
+    .end
