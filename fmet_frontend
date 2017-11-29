@@ -1,12 +1,14 @@
 *NPN frequency meter front-end
 
+    .INCLUDE models/ebipolar.lib
+
     V1 vdd 0 5V
     v2 vss 0 0V
     v3 gen vss sin(0V 15mV 40MEG) 
 
     Rgen gen in 50
 
-    Qnpn col bas emi npnt
+    Qnpn col bas emi BC548B 
     R1 col bas 33k
     C1 in bas 1000n
 
@@ -19,8 +21,6 @@
  
     *Cload out vss 2p
     Rload out vss 200000
-
-    .MODEL npnt NPN
 
     .TRAN 10p 12n
     .end

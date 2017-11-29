@@ -1,6 +1,6 @@
 *NPN coilless FM radio front-end
 
-    .INCLUDE /home/arek/pdf/BFR93A_SPICE.prm
+    .INCLUDE models/BFR93A_SPICE.prm
 
     V1 vdd 0 12V
     v2 vss 0 0V

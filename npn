@@ -1,5 +1,7 @@
 *NPN RF amplifier
 
+    .INCLUDE models/ebipolar.lib
+
     V1 vdd 0 12V
     v2 vss 0 0V
     *v3 gen vss sin(0V 2.5V 33MEG) 
@@ -8,7 +10,7 @@
     Rgen gen in 50
     *Rin in vss 50
 
-    Qnpn col bas emi npnt
+    Qnpn col bas emi BC548B
     R1 vdd bas 22K
     R2 bas vss 47K
     C1 in bas 220p
@@ -24,8 +26,6 @@
  
     Cload out vss 2p
     Rload out vss 500
-
-    .MODEL npnt NPN
 
     .TRAN 10p 12n
     .end

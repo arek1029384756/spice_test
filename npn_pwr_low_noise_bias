@@ -1,5 +1,7 @@
 *NPN low noise biased amplifier
 
+    .INCLUDE models/ebipolar.lib
+
     V1 vpwr 0 9V
     v2 vss 0 0V
     v3 gen vss sin(0V 1uV 1k)
@@ -17,7 +19,7 @@
     L102 F in 28m
     C103 in vss 100n
 
-    Qnpn col bas emi npnt
+    Qnpn col bas emi BC548B
     R1 vdd A 82k
     R2 A vss 10k
     C1 A vss 10u
@@ -35,8 +37,6 @@
 
  
     Rload out vss 10k
-
-    .MODEL npnt NPN
 
     .TRAN 10p 12n
     .end

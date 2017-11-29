@@ -1,6 +1,6 @@
 *dual gate mosfet source follower
 
-    .INCLUDE /home/arek/pdf/spice_BF998.prm
+    .INCLUDE models/spice_BF998.prm
 
     *BF998 is not able to properly bias itself from Vdd much greater than 5V
     V1 vdd 0 5V
