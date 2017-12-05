@@ -1,0 +1,17 @@
+*LC/RC power supply filter
+
+    V1 vdd 0 5V
+    v2 vss 0 0V
+    v3 gen vss dc 0 ac 1uV
+
+    Rgen gen in 1
+
+    C1 in vss 100u
+    L1 in A 4700u
+    R1 A out 12
+    C2 out vss 100u
+
+    Rload out vss 1.3k
+
+    .TRAN 10p 12n
+    .end
