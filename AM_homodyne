@@ -30,11 +30,7 @@
     C8 A out 100n
     
 
-
     Cload out vss 2p
     Rload out vss 5000
 
-    .MODEL pdualnmos BF998
-
-    .TRAN 10p 12n
     .end

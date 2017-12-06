@@ -31,7 +31,4 @@
     *Cload out vss 2p
     Rload out vss 640k
 
-    .MODEL pdualnmos BF998
-
-    .TRAN 10p 12n
     .end

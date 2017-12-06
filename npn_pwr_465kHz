@@ -28,5 +28,4 @@
  
     Rload out vss 1000
 
-    .TRAN 10p 12n
     .end

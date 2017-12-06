@@ -12,5 +12,4 @@
 
     Rl out vss 50
 
-    .TRAN 10p 12n
     .end

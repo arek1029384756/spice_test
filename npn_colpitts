@@ -37,7 +37,5 @@
     *Cload out vss 3p
     Rload out vss 75
 
-    .MODEL npnt BFR93A
 
-    .TRAN 10p 12n
     .end

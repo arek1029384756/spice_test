@@ -25,11 +25,8 @@
     *R5 sou vss 470
  
     C6 sou out 100n
-   
+
 
     Rload out vss 50
 
-    .MODEL pdualnmos BF998
-
-    .TRAN 10p 12n
     .end

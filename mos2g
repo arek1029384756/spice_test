@@ -9,7 +9,6 @@
     Rgen gen in 150
 
     Cup in g1 100p
-    *Cdn g1 vss 33p
 
     Xnd sou dra g2 g1 BF998
     R1 vdd g2 100K
@@ -26,10 +25,6 @@
  
     C6 dra out 1n
     
-    Cload out vss 5p
     Rload out vss 500
 
-    .MODEL pdualnmos BF998
-
-    .TRAN 10p 12n
     .end

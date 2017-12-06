@@ -12,5 +12,4 @@
     .MODEL nch NMOS
     .MODEL pch PMOS
 
-    .TRAN 10p 12n
     .end

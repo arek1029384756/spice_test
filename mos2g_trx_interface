@@ -9,7 +9,6 @@
     Rgen gen in 240
 
     Cup in g1 1n
-    *Cdn g1 vss 10p
 
     Xnd sou dra g2 g1 BF998
     R1 vdd g2 100K
@@ -30,7 +29,4 @@
     *Cload out vss 5p
     Rload out vss 75
 
-    .MODEL pdualnmos BF998
-
-    .TRAN 10p 12n
     .end

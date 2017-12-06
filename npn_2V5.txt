@@ -5,7 +5,6 @@
     v3 gen vss sin(0V 2.5V 100MEG) 
 
     Rgen gen in 50
-    *Rin in vss 50
 
     Qnpn col bas emi npnt
     R1 vdd bas 3K
@@ -24,5 +23,4 @@
 
     .MODEL npnt NPN
 
-    .TRAN 10p 12n
     .end

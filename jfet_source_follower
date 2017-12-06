@@ -39,7 +39,4 @@
     Cload out vss 10p
     Rload out vss 3000
 
-
-    *.tran 0.1n 10050n 10000n
-
     .end

@@ -8,7 +8,7 @@
 
     Rgen gen in 75
 
-    Qnpn1 col1 bas1 emi1 npnt1
+    Xnpn1 col1 bas1 emi1 BFR93A
     R11 vdd bas1 47k
     R12 vss bas1 22k
     C11 in bas1 10n
@@ -23,8 +23,4 @@
  
     Rload out vss 75
 
-    .MODEL npnt BFR93A
-    .MODEL npnt1 NPN
-
-    .TRAN 10p 12n
     .end

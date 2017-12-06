@@ -14,5 +14,4 @@
     *Cload out vss 2p
     *Rload out vss 500
 
-    .TRAN 10p 12n
     .end
