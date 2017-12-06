@@ -1,0 +1,18 @@
+*TX line
+
+*Z0 = sqrt(L/C)
+
+.MODEL LTRA LTRA(R=0.000 L=9.130N C=3.650P LEN=450)
+*.MODEL LTRA LTRA(R=0.000 L=52.590N C=3.650P LEN=450)
+*.MODEL LTRA LTRA(R=0.000 L=145.800N C=3.650P LEN=450)
+
+O1 in 0 out 0 LTRA
+
+Rsource in Vsource 50
+Rout out 0 50
+
+V1 Vsource 0 pulse(0V 5V 0 1n 1n 300n 1u)
+.control
+    tran 1n 5u 0n
+    plot out in 
+.endc
