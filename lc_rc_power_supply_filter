@@ -6,15 +6,24 @@
 
     Rgen gen in 1
 
-    C1 in vss 100u
+    Resr1 in X1 1
+    C1 X1 vss 100u
+    Resr2 in X2 0.01
+    C2 X2 vss 100n
+
     L1 in A 4700u
     R1 A out 12
-    C2 out vss 100u
+
+    Resr3 out X3 1
+    C3 X3 vss 100u
+    Resr4 out X4 0.01
+    C4 X4 vss 100n
+
 
     Rload out vss 1.3k
 
     .control
-    ac dec 1000 1 1MEG
+    ac dec 1000 1 100MEG
     plot db(mag(out))
     .endc
     .end
