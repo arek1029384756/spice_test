@@ -1,0 +1,33 @@
+*NPN emitter follower
+
+    .INCLUDE models/ebipolar.lib
+
+    V1 vpwr 0 9V
+    v2 vss 0 0V
+    v3 gen vss dc 0 sin(0V 1uV 465k)
+
+    R0 vpwr vdd 10
+    C0 vdd vss 100u
+
+    Rgen gen in 1k
+
+    Qnpn col bas emi BC548B
+    R1 vdd bas 220k
+    R2 bas vss 100k
+    C1 in bas 22n
+
+    R3 vdd col 0
+
+    R5 emi vss 330
+    
+    C6 emi out 10u
+
+ 
+    Rload out vss 330
+
+    .control
+    tran 10n 1007u 1000u
+    plot gen out
+    plot gen in
+    .endc
+    .end
