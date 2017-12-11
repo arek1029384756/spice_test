@@ -25,13 +25,14 @@
     L22 M vss 17u
     C22 M vss 4.3n
 
-    L33 vdd col 17u
-    C33 vdd col 6.8n
+    L33 vdd X 17u
+    C33 vdd X 6.8n
+    R4 X col 10
 
     R5 emi vss 10
     C5 emi vss 1000n
     
-    C6 col out 100n
+    C6 X out 100n
 
  
     Rload out vss 2000
