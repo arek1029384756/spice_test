@@ -13,4 +13,8 @@
 
     Rload out vss 1.3k
 
+    .control
+    ac dec 1000 1 1MEG
+    plot db(mag(out))
+    .endc
     .end
