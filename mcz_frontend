@@ -4,7 +4,7 @@
 
     V1 vdd 0 9V
     v2 vss 0 0V
-    v3 gen vss sin(0V 2uV 5k) 
+    v3 gen vss sin(0V 1uV 5k) 
 
     Rgen gen in 50
 
@@ -22,7 +22,12 @@
  
     C22 col2 out 1u
 
-    *Cload out vss 2p
     Rload out vss 2000
+
+    .control
+    tran 100n 11m 10m
+    plot gen out
+    plot gen in
+    .endc
 
     .end

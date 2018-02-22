@@ -18,8 +18,12 @@
     R14 emi1 vss 0
     C13 X1 out 1n
  
-    *Cload out vss 2p
     Rload out vss 7500
 
+    .control
+    tran 0.1n 1200n 1000n
+    plot gen out
+    plot gen in
+    .endc
 
     .end

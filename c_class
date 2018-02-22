@@ -26,9 +26,8 @@
     C13 C vss 30p
 
     C5 C out 1n
-    
- 
-    *Cload out vss 2p
+
+
     Rload out vss 50
 
     .MODEL npnt NPN
@@ -55,5 +54,12 @@
         + M = 0.03 
         + FC = 0.5 
         + TT = 3.48E-9 )
+
+
+    .control
+    tran 0.1n 10050n 10000n
+    plot gen out
+    plot gen in
+    .endc
 
     .end

@@ -37,5 +37,9 @@
     *Cload out vss 3p
     Rload out vss 75
 
+    .control
+    tran 0.1n 10050n 10000n
+    plot A out
+    .endc
 
     .end

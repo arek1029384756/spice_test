@@ -49,8 +49,11 @@
     C23 X out 1n
 
 
- 
-    Cload out vss 2p
     Rload out vss 50
+
+    .control
+    tran 0.1n 10050n 10000n
+    plot A out
+    .endc
 
     .end

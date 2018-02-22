@@ -26,7 +26,7 @@
 
     J1 dra gat sou BF545B
     R1 gat vss 1MEG
-    C1 in gat 220p
+    R0 in gat 0
 
     R2 sou vss 1k
 
@@ -36,7 +36,13 @@
     
     C6 sou out 1n
     
-    Cload out vss 10p
     Rload out vss 3000
+
+    .control
+    tran 0.1n 10100n 10000n
+    plot gen out
+    plot gen in
+    plot in out
+    .endc
 
     .end

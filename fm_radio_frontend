@@ -23,4 +23,10 @@
  
     Rload out vss 75
 
+    .control
+    tran 0.1n 10200n 10000n
+    plot gen out
+    plot gen in
+    .endc
+
     .end

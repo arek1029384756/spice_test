@@ -33,4 +33,9 @@
     Cload out vss 2p
     Rload out vss 5000
 
+    .control
+    tran 1n 2m 1m
+    plot out
+    .endc
+
     .end

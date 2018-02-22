@@ -31,4 +31,10 @@
     *Cload out vss 2p
     Rload out vss 640k
 
+    .control
+    tran 0.1n 10050n 10000n
+    plot gen out
+    plot gen in
+    .endc
+
     .end
