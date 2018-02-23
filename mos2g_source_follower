@@ -7,14 +7,19 @@
     v2 vss 0 0V
     v3 gen vss sin(0V 1uV 10MEG) 
 
-    Rgen gen in 50
+    *LPF consisted of Rgen and Cin(g1) affects simulation
+    *When tank circuit is used as a signal source, Cin(g1) is compensated and Rgen up to 1MOhm is suitable
+    Rgen gen in 1000
 
     Xnd sou dra g2 g1 BF998
     R0 g2 dra 0
 
-    R1 vdd g1 100K
-    R2 g1 vss 33K
-    C1 in g1 100n
+    R1 vdd A 100K
+    R2 A vss 33K
+    C0 A vss 1u
+
+    R3 A g1 1MEG
+    C1 in g1 1n
 
     R4 vdd dra 0
 
