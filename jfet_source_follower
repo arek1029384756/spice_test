@@ -1,30 +1,17 @@
 *jfet source follower
 
-    *PHILIPS SEMICONDUCTORS        Version: 1.0
-    *Filename: BF545B.PRM        Date: Oct 1992
-    *
-    .MODEL  BF545B   NJF
-    +             VTO = -2.3085E+000
-    +            BETA = 1.09045E-003
-    +          LAMBDA = 2.31754E-002
-    +              RD = 7.77648E+000
-    +              RS = 7.77648E+000
-    +              IS = 2.59121E-016
-    +            CGS  = 2.00000E-012
-    +            CGD  = 2.20000E-012
-    +              PB = 9.91494E-001
-    +              FC = 5.00000E-001
-    *Parameter with default value: FC
-
+    .INCLUDE models/JFET.LIB
 
     V1 vdd 0 5V
     v2 vss 0 0V
-    v3 gen vss sin(0V 100mV 40MEG) 
+    v3 gen vss sin(0V 1uV 10MEG)
     *v3 gen vss 0V
 
-    Rgen gen in 2000
+    *LPF consisted of Rgen and Cin(gat) affects simulation
+    *When tank circuit is used as a signal source, Cin(gat) is compensated and Rgen up to 1MOhm is suitable
+    Rgen gen in 100
 
-    J1 dra gat sou BF545B
+    J1 dra gat sou J310
     R1 gat vss 1MEG
     R0 in gat 0
 
@@ -34,12 +21,12 @@
     *L4 vdd dra 1u
     *C4 dra vss 10n
     
-    C6 sou out 1n
+    C6 sou out 100n
     
-    Rload out vss 3000
+    Rload out vss 150
 
     .control
-    tran 0.1n 10100n 10000n
+    tran 0.1n 10500n 10000n
     plot gen out
     plot gen in
     plot in out
