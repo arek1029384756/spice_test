@@ -1,0 +1,33 @@
+*dual gate mosfet ceramic filter interface
+*can be also used for AF track
+
+    .INCLUDE models/spice_BF998.prm
+
+    V1 vdd 0 9V
+    v2 vss 0 0V
+    v3 gen vss sin(0V 1uV 465k) 
+
+    Rgen gen in 10k
+
+    R0 in g1 0
+
+    Xnd sou dra g2 g1 BF998
+    R1 vdd g2 100K
+    R2 g2 vss 100K
+    C1 g2 vss 10u
+
+    R4 vdd dra 330
+
+    R5 sou vss 5
+ 
+    C6 dra out 10u
+    
+    Rload out vss 330
+
+    .control
+    tran 1n 105u 100u
+    plot gen out
+    plot gen in
+    .endc
+
+    .end
