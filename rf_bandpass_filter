@@ -1,4 +1,4 @@
-*LC/RC power supply filter
+*RF bandpass filter
 
     V1 vdd 0 5V
     v2 vss 0 0V
