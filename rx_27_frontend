@@ -4,21 +4,27 @@
 
     V1 vdd 0 12V
     v2 vss 0 0V
-    v3 gen vss sin(0V 0.2uV 27MEG)
+    v3 gen vss sin(0V 1uV 27MEG)
 
     Rgen gen in 150
 
-    Xnpn1 col1 bas1 emi1 BFR93A
-    R11 col1 bas1 100k
-    C11 in bas1 1n
-    L13 vdd col1 400n
-    C12 vdd col1 70p
-    L14 vss X1 4000n
-    K1 L13 L14 0.8
-    R14 emi1 vss 0
-    C13 X1 out 1n
+    Xnpn1 col bas emi BFR93A
+    R1 col bas 47k
+    C1 in M 22n
+
+    L1 M vss 360n
+    C2 M vss 50p
+    C3 M bas 22n
+
+    R2 vdd col 470
+
+    R3 emi vss 0
+
+    C4 col out 150p
+    C5 col vss 120p
+    L2 out vss 500n
  
-    Rload out vss 7500
+    Rload out vss 1500
 
     .control
     tran 0.1n 1200n 1000n
